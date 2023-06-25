@@ -22,8 +22,17 @@ function loadFlag(element){
         if(code == element.value){ // if currency code of country list is equal to option value
             let imgTag = element.parentElement.querySelector("img"); // selecting img tag of particular drop list
             // passing country code of a selected currency code in a img url
-           console.log(country_list[code].toLowerCase())
             imgTag.src = `https://flagcdn.com/48x36/${country_list[code].toLowerCase()}.png`;
+        }
+    }
+}
+function loadName(element){
+    for(let code in country_list){
+        if(code == element.value){ // if currency code of country list is equal to option value
+            let imgTag = element.parentElement.querySelector("img"); // selecting img tag of particular drop list
+            // passing country code of a selected currency code in a img url
+           return country_list[code].toLowerCase();
+          
         }
     }
 }
@@ -91,8 +100,8 @@ function getExchangeRate(){
     
     var data = google.visualization.arrayToDataTable([
       ["Country", "Rate", { role: "style" } ],
-      ["3",parseInt(amountVal) , "#b87333"],
-      ["3", rate, "silver"],
+      [loadName(fromname),parseInt(amountVal) , "#b87333"],
+      [loadName(toname), rate, "silver"],
      
     ]);
 
