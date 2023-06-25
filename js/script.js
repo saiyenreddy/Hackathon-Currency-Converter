@@ -22,10 +22,12 @@ function loadFlag(element){
         if(code == element.value){ // if currency code of country list is equal to option value
             let imgTag = element.parentElement.querySelector("img"); // selecting img tag of particular drop list
             // passing country code of a selected currency code in a img url
+           console.log(country_list[code].toLowerCase())
             imgTag.src = `https://flagcdn.com/48x36/${country_list[code].toLowerCase()}.png`;
         }
     }
 }
+
 
 window.addEventListener("load", ()=>{
     getExchangeRate();
@@ -57,32 +59,40 @@ function getExchangeRate(){
     }
     exchangeRateTxt.innerText = "Getting exchange rate...";
     let url = `https://v6.exchangerate-api.com/v6/5ccbdb10c8d61a589e3777be/latest/${fromCurrency.value}`;
-    const secondnumber = 0;
+    const rateArray = [0,"bp","je"];
 
     // fetching api response and returning it with parsing into js obj and in another then method receiving that obj
     fetch(url).then(response => response.json()).then(result =>{
 
         console.log(result)
-        let exchangeRate = result.conversion_rates[toCurrency.value]; // getting user selected TO currency rate
+        let exchangeRate = result.conversion_rates[toCurrency.value];
+        rateArray[2]=toCurrency;
+        rateArray[1]=fromCurrency;
+        // getting user selected TO currency rate
         let totalExRate = (amountVal * exchangeRate).toFixed(2); // multiplying user entered value with selected TO currency rate
         exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExRate} ${toCurrency.value}`;
-        secondnumber=exchangeRate;
+     
+
+      rateArray[0]=exchangeRate*parseInt(amountVal);
+      
+    
     }).catch(() =>{ // if user is offline or any other error occured while fetching data then catch function will run
         exchangeRateTxt.innerText = "Something went wrong";
     })
-    .finally(() => {     console.log(secondnumber);   });
-    console.log(typeof amount)
-    drawChart(amountVal,secondnumber)
+    .finally(() => {      drawChart(amountVal,rateArray[0],rateArray[1],rateArray[2])  });
+   
+   
     
 }
 
   google.charts.load("current", {packages:['corechart']});
   google.charts.setOnLoadCallback(drawChart);
-  function drawChart(amountVal,secondnumber) {
+  function drawChart(amountVal,rate,fromname,toname) {
+    
     var data = google.visualization.arrayToDataTable([
-      ["Element", "Density", { role: "style" } ],
-      ["Copper",parseInt(amountVal) , "#b87333"],
-      ["Silver", secondnumber, "silver"],
+      ["Country", "Rate", { role: "style" } ],
+      ["3",parseInt(amountVal) , "#b87333"],
+      ["3", rate, "silver"],
      
     ]);
 
@@ -95,7 +105,7 @@ function getExchangeRate(){
                      2]);
 
     var options = {
-      title: "Density of Precious Metals, in g/cm^3",
+      title: "",
       width: 600,
       height: 400,
       bar: {groupWidth: "95%"},
