@@ -16,37 +16,183 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   </head>
   <body>
-   
-    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
-   
-    <div class="wrapper">
+
+
+  
+    <div class="containerOne">
       <header>Currency Converter</header>
-      <form action="#">
-        <div class="amount">
-          <p>Enter Amount</p>
-          <input type="text" value="1">
-        </div>
-        <div class="drop-list">
-          <div class="from">
-            <p>From</p>
-            <div class="select-box">
-              <img src="https://flagcdn.com/48x36/us.png" alt="flag">
-              <select> <!-- Options tag are inserted from JavaScript --> </select>
-            </div>
-          </div>
-          <div class="icon"><i class="fas fa-exchange-alt"></i></div>
-          <div class="to">
-            <p>To</p>
-            <div class="select-box">
-              <img src="https://flagcdn.com/48x36/np.png" alt="flag">
-              <select> <!-- Options tag are inserted from JavaScript --> </select>
-            </div>
-          </div>
-        </div>
-        <div class="exchange-rate">Getting exchange rate...</div>
-        <button>Get Exchange Rate</button>
-      </form>
     </div>
+
+    <!--<div class="containerTwo">
+      <div class="flex-container">
+
+        <div class="flex-child magenta">
+          <form action="#">
+            <div class="amount">
+              <p>Enter Amount</p>
+              <input type="text" value="1">
+            </div>
+            <div class="drop-list">
+              <div class="from">
+                <p>From</p>
+                <div class="select-box">
+                  <img src="https://flagcdn.com/48x36/us.png" alt="flag">
+                  <select></select>
+                </div>
+              </div>
+              <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+              <div class="to">
+                <p>To</p>
+                <div class="select-box">
+                  <img src="https://flagcdn.com/48x36/np.png" alt="flag">
+                  <select></select>
+                </div>
+              </div>
+            </div>
+            <div class="exchange-rate">Getting exchange rate...</div>
+            <button>Get Exchange Rate</button>
+          </form>
+        </div>
+        
+        <div class="flex-child green">
+          <div class="flex-child brown" id="columnchart_values" style="width: 600px; height: 500px;"></div>
+        </div>
+        
+      </div>
+    </div>-->
+
+    <div class="containerTwo">
+      <div class="flex-container">
+
+        <div class="flex-child magenta">
+          <form action="#">
+            <div class="amount">
+              <p>Enter Amount</p>
+              <input type="text" value="1">
+            </div>
+            <div class="drop-list">
+              <div class="from">
+                <p>From</p>
+                <div class="select-box">
+                  <img src="https://flagcdn.com/48x36/us.png" alt="flag">
+                  <select></select>
+                </div>
+              </div>
+              <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+              <div class="to">
+                <p>To</p>
+                <div class="select-box">
+                  <img src="https://flagcdn.com/48x36/np.png" alt="flag">
+                  <select></select>
+                </div>
+              </div>
+            </div>
+            <div class="exchange-rate">Getting exchange rate...</div>
+            <button>Get Exchange Rate</button>
+          </form>
+        </div>
+        
+        <div class="flex-child green" id="columnchart_values" style="width: 600px; height: 500px;"></div>
+        
+      </div>
+    </div>
+
+    <div class="containerThree">
+      <div id="container">
+        <div class="steam" id="steam1"> </div>
+        <div class="steam" id="steam2"> </div>
+        <div class="steam" id="steam3"> </div>
+        <div class="steam" id="steam4"> </div>
+      
+        <div id="cup">
+          <div id="cup-body">
+            <div id="cup-shade"></div>
+          </div>
+          <div id="cup-handle"></div>
+        </div>
+      
+        <div id="saucer"></div>
+      
+        <div id="shadow"></div>
+      </div>
+    </div>
+
+    <div class="containerFour">
+      <p id="CoffeePrice">Hello World</p>
+    </div>
+
+
+
+
+
+    <!--    <div class="float-container">
+      <div class="float-child green">
+        <div class="flex-container">
+          
+          //Top Left//
+          <div class="flex-child magenta">
+            //Converter//
+            <div class="flex-child magenta">
+                <form action="#">
+                  <div class="amount">
+                    <p>Enter Amount</p>
+                    <input type="text" value="1">
+                  </div>
+                  <div class="drop-list">
+                    <div class="from">
+                      <p>From</p>
+                      <div class="select-box">
+                        <img src="https://flagcdn.com/48x36/us.png" alt="flag">
+                        <select></select>
+                      </div>
+                    </div>
+                    <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+                    <div class="to">
+                      <p>To</p>
+                      <div class="select-box">
+                        <img src="https://flagcdn.com/48x36/np.png" alt="flag">
+                        <select></select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="exchange-rate">Getting exchange rate...</div>
+                  <button>Get Exchange Rate</button>
+                </form>
+            </div>
+          </div>
+          
+          //Top Right//
+          <div class="flex-child green">
+            //Chart//
+            <div class="flex-child brown" id="columnchart_values" style="width: 600px; height: 500px;"></div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="float-child blue">
+        //CoffeeCup//
+        <div id="container">
+          <div class="steam" id="steam1"> </div>
+          <div class="steam" id="steam2"> </div>
+          <div class="steam" id="steam3"> </div>
+          <div class="steam" id="steam4"> </div>
+        
+          <div id="cup">
+            <div id="cup-body">
+              <div id="cup-shade"></div>
+            </div>
+            <div id="cup-handle"></div>
+          </div>
+        
+          <div id="saucer"></div>
+        
+          <div id="shadow"></div>
+        </div>
+      </div>
+    
+      
+    </div>-->
 
     <script src="js/country-list.js"></script>
     <script src="js/script.js"></script>
